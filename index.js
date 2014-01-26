@@ -13,6 +13,9 @@
         opts = {};
       }
       showFaces = (_ref = opts.showFaces) != null ? _ref : ['left', 'top', 'front'];
+      if (opts.side != null) {
+        opts.left = opts.front = opts.side;
+      }
       this.container = document.createElement('div');
       s = 16;
       dz = s / 2;
@@ -49,9 +52,8 @@
   grass_side = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAdElEQVQ4y2NgOMz4n+ElEB/Gg1/iEcMpQchQGJ6ZZvyfEL4zxRsrG4QZkAXRJfEZBOMzEKsYF2bAZiqxhqG4gFgb0dUyEGsjLgsYSAk0bAHOgCt0yXYBqWHBQIwGggmJWMXY1DFQEoUYLiAmMIkKA0IGIfMBkw04/LuclggAAAAASUVORK5CYII=';
 
   document.body.appendChild(new CubeIcon({
-    left: grass_side,
-    top: grass_top,
-    front: stone
+    side: grass_side,
+    top: grass_top
   }).container);
 
 }).call(this);
