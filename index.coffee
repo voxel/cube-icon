@@ -14,21 +14,20 @@ class CubeIcon
     if opts.side?
       opts.left = opts.front = opts.side
 
+
+    rotateX = opts.rotateX ? -30
+    rotateY = opts.rotateY ? 45
     scale = opts.scale ? 10
 
     s = opts.size ? 16
 
-    shiftX = opts.shiftX ? s * Math.cos(45 * Math.PI/180)
-    shiftY = opts.shiftY ? s
-
     @container = document.createElement 'div'
 
-    ch = 26
-    cw = 22
+    ch = s * (1 + Math.cos(rotateY * Math.PI/180))
+    cw = s * (1 - Math.sin(rotateX * Math.PI/180))
 
     @container.setAttribute 'style', "
-X-webkit-transform: rotateX(-30deg) rotateY(45deg) scale3d(#{scale},#{scale},#{scale}) translateX(#{shiftX}px) translateY(#{shiftY}px);
--webkit-transform: rotateX(-30deg) rotateY(45deg) translateX(#{cw - s}px) translateY(#{ch - s}px);
+-webkit-transform: rotateX(#{rotateX}deg) rotateY(#{rotateY}deg) translateX(#{cw - s}px) translateY(#{ch - s}px);
 -webkit-transform-origin: 0 0;
 position: relative;
 -webkit-transform-style: preserve-3d;

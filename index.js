@@ -8,7 +8,7 @@
 
   CubeIcon = (function() {
     function CubeIcon(opts) {
-      var ch, cw, dz, face, faceName, faceTransforms, i, s, scale, shiftX, shiftY, showFaces, _i, _len, _ref, _ref1, _ref2, _ref3, _ref4;
+      var ch, cw, dz, face, faceName, faceTransforms, i, rotateX, rotateY, s, scale, showFaces, _i, _len, _ref, _ref1, _ref2, _ref3, _ref4;
       if (opts == null) {
         opts = {};
       }
@@ -16,14 +16,14 @@
       if (opts.side != null) {
         opts.left = opts.front = opts.side;
       }
-      scale = (_ref1 = opts.scale) != null ? _ref1 : 10;
-      s = (_ref2 = opts.size) != null ? _ref2 : 16;
-      shiftX = (_ref3 = opts.shiftX) != null ? _ref3 : s * Math.cos(45 * Math.PI / 180);
-      shiftY = (_ref4 = opts.shiftY) != null ? _ref4 : s;
+      rotateX = (_ref1 = opts.rotateX) != null ? _ref1 : -30;
+      rotateY = (_ref2 = opts.rotateY) != null ? _ref2 : 45;
+      scale = (_ref3 = opts.scale) != null ? _ref3 : 10;
+      s = (_ref4 = opts.size) != null ? _ref4 : 16;
       this.container = document.createElement('div');
-      ch = 26;
-      cw = 22;
-      this.container.setAttribute('style', "X-webkit-transform: rotateX(-30deg) rotateY(45deg) scale3d(" + scale + "," + scale + "," + scale + ") translateX(" + shiftX + "px) translateY(" + shiftY + "px);-webkit-transform: rotateX(-30deg) rotateY(45deg) translateX(" + (cw - s) + "px) translateY(" + (ch - s) + "px);-webkit-transform-origin: 0 0;position: relative;-webkit-transform-style: preserve-3d;width: " + cw + "px;height: " + ch + "px;");
+      ch = s * (1 + Math.cos(rotateY * Math.PI / 180));
+      cw = s * (1 - Math.sin(rotateX * Math.PI / 180));
+      this.container.setAttribute('style', "-webkit-transform: rotateX(" + rotateX + "deg) rotateY(" + rotateY + "deg) translateX(" + (cw - s) + "px) translateY(" + (ch - s) + "px);-webkit-transform-origin: 0 0;position: relative;-webkit-transform-style: preserve-3d;width: " + cw + "px;height: " + ch + "px;");
       dz = s / 2;
       faceTransforms = {
         front: "rotateY(   0deg ) translateZ( " + dz + "px )",
