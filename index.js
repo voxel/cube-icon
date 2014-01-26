@@ -8,7 +8,7 @@
 
   CubeIcon = (function() {
     function CubeIcon(opts) {
-      var dz, face, faceName, faceTransforms, i, s, scale, shiftX, shiftY, showFaces, _i, _len, _ref, _ref1, _ref2, _ref3, _ref4;
+      var ch, cw, dz, face, faceName, faceTransforms, i, s, scale, shiftX, shiftY, showFaces, _i, _len, _ref, _ref1, _ref2, _ref3, _ref4;
       if (opts == null) {
         opts = {};
       }
@@ -21,7 +21,9 @@
       shiftX = (_ref3 = opts.shiftX) != null ? _ref3 : s * Math.cos(45 * Math.PI / 180);
       shiftY = (_ref4 = opts.shiftY) != null ? _ref4 : s;
       this.container = document.createElement('div');
-      this.container.setAttribute('style', "X-webkit-transform: rotateX(-30deg) rotateY(45deg) scale3d(" + scale + "," + scale + "," + scale + ") translateX(" + shiftX + "px) translateY(" + shiftY + "px);-webkit-transform: rotateX(-30deg) rotateY(45deg);-webkit-transform-origin: 0 0;position: relative;-webkit-transform-style: preserve-3d;width: " + s + "px;height: " + s + "px;");
+      ch = 26;
+      cw = 22;
+      this.container.setAttribute('style', "X-webkit-transform: rotateX(-30deg) rotateY(45deg) scale3d(" + scale + "," + scale + "," + scale + ") translateX(" + shiftX + "px) translateY(" + shiftY + "px);-webkit-transform: rotateX(-30deg) rotateY(45deg) translateX(" + (cw - s) + "px) translateY(" + (ch - s) + "px);-webkit-transform-origin: 0 0;position: relative;-webkit-transform-style: preserve-3d;width: " + cw + "px;height: " + ch + "px;");
       dz = s / 2;
       faceTransforms = {
         front: "rotateY(   0deg ) translateZ( " + dz + "px )",
