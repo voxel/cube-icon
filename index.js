@@ -8,7 +8,11 @@
 
   CubeIcon = (function() {
     function CubeIcon(opts) {
-      var dz, face, faceName, faceTransforms, faces, i, s, _i, _len;
+      var dz, face, faceName, faceTransforms, i, s, _i, _len, _ref, _ref1;
+      if (opts == null) {
+        opts = {};
+      }
+      this.showFaces = (_ref = opts.showFaces) != null ? _ref : ['left', 'top', 'front'];
       this.container = document.createElement('div');
       s = 16;
       dz = s / 2;
@@ -21,9 +25,9 @@
         top: "rotateX(  90deg ) translateZ( " + dz + "px )",
         bottom: "rotateX( -90deg ) translateZ( " + dz + "px )"
       };
-      faces = ['back', 'right', 'left', 'top', 'bottom', 'front'];
-      for (i = _i = 0, _len = faces.length; _i < _len; i = ++_i) {
-        faceName = faces[i];
+      _ref1 = this.showFaces;
+      for (i = _i = 0, _len = _ref1.length; _i < _len; i = ++_i) {
+        faceName = _ref1[i];
         face = document.createElement('div');
         face.setAttribute('style', "-webkit-transform-style: preserve-3d;-webkit-transform: " + faceTransforms[faceName] + ";position: absolute;border: 0.5px solid black;width: " + s + "px;height: " + s + "px;background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAb0lEQVQ4y2OYmWb8/84U7/8gGhfGJg8TY8AlQchQGGYgRhGyYegGM5BiK7o8iM9Air+xegGbqcQahuICYm1EV8tArI24LGAgN/5R0gEl4cBAbujDA5EYDQQTErGKceYFcqMQwwXEBCZRYUDIIGQ+AHmcSKuZbPIVAAAAAElFTkSuQmCC);");
         face.textContent = i;

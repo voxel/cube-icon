@@ -4,6 +4,13 @@ module.exports = (opts) -> new CubeIcon
 class CubeIcon
   constructor: (opts) ->
 
+    opts ?= {}
+
+    @showFaces = opts.showFaces ?
+      #faces = ['back', 'right', 'left', 'top', 'bottom', 'front']
+      #           0        1        2       3       4        5
+      [                   'left', 'top',          'front']
+
     @container = document.createElement 'div'
 
     s = 16
@@ -24,8 +31,7 @@ position: absolute;
       bottom: "rotateX( -90deg ) translateZ( #{dz}px )"
     }
 
-    faces = ['back', 'right', 'left', 'top', 'bottom', 'front']
-    for faceName, i in faces
+    for faceName, i in @showFaces
       face = document.createElement 'div'
       face.setAttribute 'style', "
 -webkit-transform-style: preserve-3d;
