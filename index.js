@@ -21,8 +21,8 @@
       scale = (_ref3 = opts.scale) != null ? _ref3 : 10;
       s = (_ref4 = opts.size) != null ? _ref4 : 16;
       this.container = document.createElement('div');
-      ch = s * (1 + Math.cos(rotateY * Math.PI / 180));
-      cw = s * (1 - Math.sin(rotateX * Math.PI / 180));
+      ch = Math.ceil(s * (1 + Math.cos(rotateY * Math.PI / 180)));
+      cw = Math.ceil(s * (1 - Math.sin(rotateX * Math.PI / 180)));
       this.container.setAttribute('style', "-webkit-transform: rotateX(" + rotateX + "deg) rotateY(" + rotateY + "deg) translateX(" + (cw - s) + "px) translateY(" + (ch - s) + "px);-webkit-transform-origin: 0 0;position: relative;-webkit-transform-style: preserve-3d;width: " + cw + "px;height: " + ch + "px;");
       dz = s / 2;
       faceTransforms = {

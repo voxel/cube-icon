@@ -23,8 +23,8 @@ class CubeIcon
 
     @container = document.createElement 'div'
 
-    ch = s * (1 + Math.cos(rotateY * Math.PI/180))
-    cw = s * (1 - Math.sin(rotateX * Math.PI/180))
+    ch = Math.ceil(s * (1 + Math.cos(rotateY * Math.PI/180)))
+    cw = Math.ceil(s * (1 - Math.sin(rotateX * Math.PI/180)))
 
     @container.setAttribute 'style', "
 -webkit-transform: rotateX(#{rotateX}deg) rotateY(#{rotateY}deg) translateX(#{cw - s}px) translateY(#{ch - s}px);
