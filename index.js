@@ -21,7 +21,7 @@
       shiftX = (_ref3 = opts.shiftX) != null ? _ref3 : s * Math.cos(45 * Math.PI / 180);
       shiftY = (_ref4 = opts.shiftY) != null ? _ref4 : s;
       this.container = document.createElement('div');
-      this.container.setAttribute('style', "-webkit-transform: rotateX(-30deg) rotateY(45deg) scale3d(" + scale + "," + scale + "," + scale + ") translateX(" + shiftX + "px) translateY(" + shiftY + "px);-webkit-transform-origin: 0 0;position: relative;-webkit-transform-style: preserve-3d;");
+      this.container.setAttribute('style', "X-webkit-transform: rotateX(-30deg) rotateY(45deg) scale3d(" + scale + "," + scale + "," + scale + ") translateX(" + shiftX + "px) translateY(" + shiftY + "px);-webkit-transform: rotateX(-30deg) rotateY(45deg);-webkit-transform-origin: 0 0;position: relative;-webkit-transform-style: preserve-3d;width: " + s + "px;height: " + s + "px;");
       dz = s / 2;
       faceTransforms = {
         front: "rotateY(   0deg ) translateZ( " + dz + "px )",

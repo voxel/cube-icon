@@ -24,10 +24,13 @@ class CubeIcon
     @container = document.createElement 'div'
 
     @container.setAttribute 'style', "
--webkit-transform: rotateX(-30deg) rotateY(45deg) scale3d(#{scale},#{scale},#{scale}) translateX(#{shiftX}px) translateY(#{shiftY}px);
+X-webkit-transform: rotateX(-30deg) rotateY(45deg) scale3d(#{scale},#{scale},#{scale}) translateX(#{shiftX}px) translateY(#{shiftY}px);
+-webkit-transform: rotateX(-30deg) rotateY(45deg);
 -webkit-transform-origin: 0 0;
 position: relative;
 -webkit-transform-style: preserve-3d;
+width: #{s}px;
+height: #{s}px;
 "
 
     dz = s / 2
