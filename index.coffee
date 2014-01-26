@@ -18,7 +18,7 @@ class CubeIcon
 
     s = opts.size ? 16
 
-    shiftX = opts.shiftX ? s
+    shiftX = opts.shiftX ? s * Math.cos(45 * Math.PI/180)
     shiftY = opts.shiftY ? s
 
     @container = document.createElement 'div'
@@ -61,4 +61,9 @@ stone = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAS
 grass_top = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAYElEQVQ4y61TwREAIAiy/cdyGqao3qWIXQ8flgGimfmYhh1OAuQsvahAPQOoFCACUFkR5K2+wxbQMMyZApXxrJUZ8TIFBoRoCl8UdL2QHpSLpBanf+F1hJcCNP2AugckXwA2yZhbyqZNAAAAAElFTkSuQmCC'
 grass_side = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAdElEQVQ4y2NgOMz4n+ElEB/Gg1/iEcMpQchQGJ6ZZvyfEL4zxRsrG4QZkAXRJfEZBOMzEKsYF2bAZiqxhqG4gFgb0dUyEGsjLgsYSAk0bAHOgCt0yXYBqWHBQIwGggmJWMXY1DFQEoUYLiAmMIkKA0IGIfMBkw04/LuclggAAAAASUVORK5CYII='
 
-document.body.appendChild new CubeIcon(side:grass_side, top:grass_top).container
+box = document.createElement 'div'
+box.setAttribute 'style', 'border: 1px solid black;'
+document.body.appendChild(box)
+
+box.appendChild new CubeIcon(side:grass_side, top:grass_top).container
+box.appendChild new CubeIcon(left:dirt, front:stone, top:grass_top).container
