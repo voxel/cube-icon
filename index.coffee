@@ -6,7 +6,7 @@ class CubeIcon
 
     opts ?= {}
 
-    @showFaces = opts.showFaces ?
+    showFaces = opts.showFaces ?
       #faces = ['back', 'right', 'left', 'top', 'bottom', 'front']
       #           0        1        2       3       4        5
       [                   'left', 'top',          'front']
@@ -31,7 +31,7 @@ position: absolute;
       bottom: "rotateX( -90deg ) translateZ( #{dz}px )"
     }
 
-    for faceName, i in @showFaces
+    for faceName, i in showFaces
       face = document.createElement 'div'
       face.setAttribute 'style', "
 -webkit-transform-style: preserve-3d;
@@ -39,9 +39,8 @@ position: absolute;
 position: absolute;
 border: 0.5px solid black;
 width: #{s}px;
-height: #{s}px;
-background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAb0lEQVQ4y2OYmWb8/84U7/8gGhfGJg8TY8AlQchQGGYgRhGyYegGM5BiK7o8iM9Air+xegGbqcQahuICYm1EV8tArI24LGAgN/5R0gEl4cBAbujDA5EYDQQTErGKceYFcqMQwwXEBCZRYUDIIGQ+AHmcSKuZbPIVAAAAAElFTkSuQmCC);
-"
+height: #{s}px;"
+      face.style.backgroundImage = 'url(' + opts[faceName] + ')'
       face.textContent = i
 
       @container.style.webkitTransition = '-webkit-transform 1s'
@@ -49,4 +48,9 @@ background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYA
       @container.appendChild face
 
 
-document.body.appendChild new CubeIcon().container
+dirt = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAb0lEQVQ4y2OYmWb8/84U7/8gGhfGJg8TY8AlQchQGGYgRhGyYegGM5BiK7o8iM9Air+xegGbqcQahuICYm1EV8tArI24LGAgN/5R0gEl4cBAbujDA5EYDQQTErGKceYFcqMQwwXEBCZRYUDIIGQ+AHmcSKuZbPIVAAAAAElFTkSuQmCC'
+stone = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAASklEQVQ4y+1SsQ0AMAjidz/gYTu1MU2QprODE6CggmSqiohTCkMldAKF49fBxlGJt1A1kw66aXIHjuCi4DWvigN3JucC8wfzB2QuoGWkP++xVxEAAAAASUVORK5CYII='
+grass_top = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAYElEQVQ4y61TwREAIAiy/cdyGqao3qWIXQ8flgGimfmYhh1OAuQsvahAPQOoFCACUFkR5K2+wxbQMMyZApXxrJUZ8TIFBoRoCl8UdL2QHpSLpBanf+F1hJcCNP2AugckXwA2yZhbyqZNAAAAAElFTkSuQmCC'
+grass_side = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAdElEQVQ4y2NgOMz4n+ElEB/Gg1/iEcMpQchQGJ6ZZvyfEL4zxRsrG4QZkAXRJfEZBOMzEKsYF2bAZiqxhqG4gFgb0dUyEGsjLgsYSAk0bAHOgCt0yXYBqWHBQIwGggmJWMXY1DFQEoUYLiAmMIkKA0IGIfMBkw04/LuclggAAAAASUVORK5CYII='
+
+document.body.appendChild new CubeIcon(left:grass_side, top:grass_top, front:stone).container
