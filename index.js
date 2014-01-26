@@ -21,7 +21,7 @@
         top: "rotateX(  90deg ) translateZ( " + dz + "px )",
         bottom: "rotateX( -90deg ) translateZ( " + dz + "px )"
       };
-      faces = Object.keys(faceTransforms);
+      faces = ['front', 'back', 'right', 'left', 'top', 'bottom'];
       for (i = _i = 0, _len = faces.length; _i < _len; i = ++_i) {
         faceName = faces[i];
         face = document.createElement('div');
