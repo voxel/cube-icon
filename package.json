@@ -1,0 +1,17 @@
+{
+  "name": "cube-icon",
+  "description": "",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:deathcap/cube-icon.git"
+  },
+  "keywords": [
+    "voxel"
+  ],
+  "dependencies": {
+  },
+  "peerDependencies": {
+  },
+  "license": "MIT"
+}

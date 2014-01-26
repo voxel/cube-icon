@@ -1,0 +1,6 @@
+# cube-icon
+
+## License
+
+MIT
+
