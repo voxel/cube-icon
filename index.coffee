@@ -24,7 +24,7 @@ position: absolute;
       bottom: "rotateX( -90deg ) translateZ( #{dz}px )"
     }
 
-    faces = ['front', 'back', 'right', 'left', 'top', 'bottom']
+    faces = ['back', 'right', 'left', 'top', 'bottom', 'front']
     for faceName, i in faces
       face = document.createElement 'div'
       face.setAttribute 'style', "
