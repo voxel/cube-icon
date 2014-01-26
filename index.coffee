@@ -68,7 +68,7 @@ grass_top = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hA
 grass_side = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAdElEQVQ4y2NgOMz4n+ElEB/Gg1/iEcMpQchQGJ6ZZvyfEL4zxRsrG4QZkAXRJfEZBOMzEKsYF2bAZiqxhqG4gFgb0dUyEGsjLgsYSAk0bAHOgCt0yXYBqWHBQIwGggmJWMXY1DFQEoUYLiAmMIkKA0IGIfMBkw04/LuclggAAAAASUVORK5CYII='
 
 box = document.createElement 'div'
-box.setAttribute 'style', 'border: 1px solid black;'
+box.setAttribute 'style', 'border: 1px solid black; position: absolute;'
 document.body.appendChild(box)
 
 box.appendChild new CubeIcon(side:grass_side, top:grass_top).container

@@ -58,7 +58,7 @@
 
   box = document.createElement('div');
 
-  box.setAttribute('style', 'border: 1px solid black;');
+  box.setAttribute('style', 'border: 1px solid black; position: absolute;');
 
   document.body.appendChild(box);
 
