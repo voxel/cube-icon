@@ -8,7 +8,7 @@
 
   CubeIcon = (function() {
     function CubeIcon(opts) {
-      var dz, face, faceName, faceTransforms, i, s, showFaces, _i, _len, _ref;
+      var dz, face, faceName, faceTransforms, i, s, scale, shiftX, shiftY, showFaces, _i, _len, _ref, _ref1, _ref2, _ref3, _ref4;
       if (opts == null) {
         opts = {};
       }
@@ -16,10 +16,13 @@
       if (opts.side != null) {
         opts.left = opts.front = opts.side;
       }
+      scale = (_ref1 = opts.scale) != null ? _ref1 : 10;
+      s = (_ref2 = opts.size) != null ? _ref2 : 16;
+      shiftX = (_ref3 = opts.shiftX) != null ? _ref3 : s;
+      shiftY = (_ref4 = opts.shiftY) != null ? _ref4 : s;
       this.container = document.createElement('div');
-      s = 16;
+      this.container.setAttribute('style', "-webkit-transform: rotateX(-30deg) rotateY(45deg) scale3d(" + scale + "," + scale + "," + scale + ") translateX(" + shiftX + "px) translateY(" + shiftY + "px);position: absolute;-webkit-transform-style: preserve-3d;");
       dz = s / 2;
-      this.container.setAttribute('style', "-webkit-transform: translateX(100px) translateY(100px) rotateX(-30deg) rotateY(45deg) scale3d(10,10,10);position: absolute;-webkit-transform-style: preserve-3d;");
       faceTransforms = {
         front: "rotateY(   0deg ) translateZ( " + dz + "px )",
         back: "rotateX( 180deg ) translateZ( " + dz + "px )",

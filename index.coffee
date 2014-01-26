@@ -14,17 +14,22 @@ class CubeIcon
     if opts.side?
       opts.left = opts.front = opts.side
 
+    scale = opts.scale ? 10
+
+    s = opts.size ? 16
+
+    shiftX = opts.shiftX ? s
+    shiftY = opts.shiftY ? s
+
     @container = document.createElement 'div'
 
-    s = 16
-    dz = s / 2
-
     @container.setAttribute 'style', "
--webkit-transform: translateX(100px) translateY(100px) rotateX(-30deg) rotateY(45deg) scale3d(10,10,10);
+-webkit-transform: rotateX(-30deg) rotateY(45deg) scale3d(#{scale},#{scale},#{scale}) translateX(#{shiftX}px) translateY(#{shiftY}px);
 position: absolute;
 -webkit-transform-style: preserve-3d;
 "
 
+    dz = s / 2
     faceTransforms = { # http://desandro.github.io/3dtransforms/docs/cube.html
       front:  "rotateY(   0deg ) translateZ( #{dz}px )"
       back:   "rotateX( 180deg ) translateZ( #{dz}px )"
