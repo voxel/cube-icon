@@ -63,10 +63,8 @@ border: 0.5px solid black;
 width: #{s}px;
 height: #{s}px;"
       face.style.backgroundImage = 'url(' + opts[faceName] + ')'
-      face.textContent = i
 
       @container.style.webkitTransition = '-webkit-transform 1s'
-      #@container.style.webkitTransform = 'translateX(100px) translateY(100px) rotateX(-45deg) rotateY(45deg) scale3d(10,10,10)' # try changing in inspector!
       @container.appendChild face
 
 

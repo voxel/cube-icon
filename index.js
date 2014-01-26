@@ -41,7 +41,6 @@
         face = document.createElement('div');
         face.setAttribute('style', "-webkit-transform-style: preserve-3d;-webkit-transform: " + faceTransforms[faceName] + ";position: absolute;border: 0.5px solid black;width: " + s + "px;height: " + s + "px;");
         face.style.backgroundImage = 'url(' + opts[faceName] + ')';
-        face.textContent = i;
         this.container.style.webkitTransition = '-webkit-transform 1s';
         this.container.appendChild(face);
       }
