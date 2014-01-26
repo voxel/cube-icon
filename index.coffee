@@ -10,7 +10,7 @@ class CubeIcon
     dz = s / 2
 
     @container.setAttribute 'style', "
--webkit-transform: translateX(100px) translateY(100px) rotateX(-45deg) rotateY(-45deg) scale3d(10,10,10);
+-webkit-transform: translateX(100px) translateY(100px) rotateX(-30deg) rotateY(45deg) scale3d(10,10,10);
 position: absolute;
 -webkit-transform-style: preserve-3d;
 "
@@ -38,6 +38,8 @@ background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYA
 "
       face.textContent = i
 
+      @container.style.webkitTransition = '-webkit-transform 1s'
+      #@container.style.webkitTransform = 'translateX(100px) translateY(100px) rotateX(-45deg) rotateY(45deg) scale3d(10,10,10)' # try changing in inspector!
       @container.appendChild face
 
 

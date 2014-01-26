@@ -12,7 +12,7 @@
       this.container = document.createElement('div');
       s = 16;
       dz = s / 2;
-      this.container.setAttribute('style', "-webkit-transform: translateX(100px) translateY(100px) rotateX(-45deg) rotateY(-45deg) scale3d(10,10,10);position: absolute;-webkit-transform-style: preserve-3d;");
+      this.container.setAttribute('style', "-webkit-transform: translateX(100px) translateY(100px) rotateX(-30deg) rotateY(45deg) scale3d(10,10,10);position: absolute;-webkit-transform-style: preserve-3d;");
       faceTransforms = {
         front: "rotateY(   0deg ) translateZ( " + dz + "px )",
         back: "rotateX( 180deg ) translateZ( " + dz + "px )",
@@ -27,6 +27,7 @@
         face = document.createElement('div');
         face.setAttribute('style', "-webkit-transform-style: preserve-3d;-webkit-transform: " + faceTransforms[faceName] + ";position: absolute;border: 0.5px solid black;width: " + s + "px;height: " + s + "px;background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAb0lEQVQ4y2OYmWb8/84U7/8gGhfGJg8TY8AlQchQGGYgRhGyYegGM5BiK7o8iM9Air+xegGbqcQahuICYm1EV8tArI24LGAgN/5R0gEl4cBAbujDA5EYDQQTErGKceYFcqMQwwXEBCZRYUDIIGQ+AHmcSKuZbPIVAAAAAElFTkSuQmCC);");
         face.textContent = i;
+        this.container.style.webkitTransition = '-webkit-transform 1s';
         this.container.appendChild(face);
       }
     }
