@@ -18,12 +18,12 @@
       }
       rotateX = (_ref1 = opts.rotateX) != null ? _ref1 : -30;
       rotateY = (_ref2 = opts.rotateY) != null ? _ref2 : 45;
-      scale = (_ref3 = opts.scale) != null ? _ref3 : 10;
+      scale = (_ref3 = opts.scale) != null ? _ref3 : 5;
       s = (_ref4 = opts.size) != null ? _ref4 : 16;
       this.container = document.createElement('div');
-      ch = Math.ceil(s * (1 + Math.cos(rotateY * Math.PI / 180)));
-      cw = Math.ceil(s * (1 - Math.sin(rotateX * Math.PI / 180)));
-      this.container.setAttribute('style', "-webkit-transform: rotateX(" + rotateX + "deg) rotateY(" + rotateY + "deg) translateX(" + (cw - s) + "px) translateY(" + (ch - s) + "px);-webkit-transform-origin: 0 0;position: relative;-webkit-transform-style: preserve-3d;width: " + cw + "px;height: " + ch + "px;");
+      ch = Math.ceil(s * (1 + Math.cos(rotateY * Math.PI / 180))) * scale;
+      cw = Math.ceil(s * (1 - Math.sin(rotateX * Math.PI / 180))) * scale;
+      this.container.setAttribute('style', "-webkit-transform: rotateX(" + rotateX + "deg) rotateY(" + rotateY + "deg) translateX(" + (cw - s * scale) + "px) translateY(" + (ch - s * scale) + "px) scale3d(" + scale + "," + scale + "," + scale + ");-webkit-transform-origin: 0 0;position: relative;-webkit-transform-style: preserve-3d;width: " + cw + "px;height: " + ch + "px;");
       dz = s / 2;
       faceTransforms = {
         front: "rotateY(   0deg ) translateZ( " + dz + "px )",

@@ -17,17 +17,17 @@ class CubeIcon
 
     rotateX = opts.rotateX ? -30
     rotateY = opts.rotateY ? 45
-    scale = opts.scale ? 10
+    scale = opts.scale ? 5
 
     s = opts.size ? 16
 
     @container = document.createElement 'div'
 
-    ch = Math.ceil(s * (1 + Math.cos(rotateY * Math.PI/180)))
-    cw = Math.ceil(s * (1 - Math.sin(rotateX * Math.PI/180)))
+    ch = Math.ceil(s * (1 + Math.cos(rotateY * Math.PI/180))) * scale
+    cw = Math.ceil(s * (1 - Math.sin(rotateX * Math.PI/180))) * scale
 
     @container.setAttribute 'style', "
--webkit-transform: rotateX(#{rotateX}deg) rotateY(#{rotateY}deg) translateX(#{cw - s}px) translateY(#{ch - s}px);
+-webkit-transform: rotateX(#{rotateX}deg) rotateY(#{rotateY}deg) translateX(#{cw - s * scale}px) translateY(#{ch - s * scale}px) scale3d(#{scale},#{scale},#{scale});
 -webkit-transform-origin: 0 0;
 position: relative;
 -webkit-transform-style: preserve-3d;
