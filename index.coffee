@@ -1,5 +1,5 @@
 
-module.exports = (opts) -> new CubeIcon
+module.exports = (opts) -> new CubeIcon opts
 
 class CubeIcon
   constructor: (opts) ->
@@ -23,8 +23,16 @@ class CubeIcon
 
     @container = document.createElement 'div'
 
-    ch = Math.ceil(s * (1 + Math.cos(rotateY * Math.PI/180))) * scale
-    cw = Math.ceil(s * (1 - Math.sin(rotateX * Math.PI/180))) * scale
+    #cw = Math.ceil(s * (1 - Math.sin(rotateX * Math.PI/180))) * scale
+    #ch = Math.ceil(s * (1 + Math.cos(rotateY * Math.PI/180))) * scale
+   
+    cw = ch = 100
+
+    cubeW = Math.floor(ch / ((1 - Math.sin(rotateX * Math.PI/180))) - 2)
+    cubeH = Math.ceil(cw / ((1 + Math.cos(rotateY * Math.PI/180))) + 1)
+
+    console.log(cw,s,cubeW)
+    console.log(ch,s,cubeH)
 
     @container.setAttribute 'style', "
 -webkit-transform: rotateX(#{rotateX}deg) rotateY(#{rotateY}deg) translateX(#{cw - s * scale}px) translateY(#{ch - s * scale}px) scale3d(#{scale},#{scale},#{scale});
@@ -62,14 +70,3 @@ height: #{s}px;"
       @container.appendChild face
 
 
-dirt = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAb0lEQVQ4y2OYmWb8/84U7/8gGhfGJg8TY8AlQchQGGYgRhGyYegGM5BiK7o8iM9Air+xegGbqcQahuICYm1EV8tArI24LGAgN/5R0gEl4cBAbujDA5EYDQQTErGKceYFcqMQwwXEBCZRYUDIIGQ+AHmcSKuZbPIVAAAAAElFTkSuQmCC'
-stone = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAASklEQVQ4y+1SsQ0AMAjidz/gYTu1MU2QprODE6CggmSqiohTCkMldAKF49fBxlGJt1A1kw66aXIHjuCi4DWvigN3JucC8wfzB2QuoGWkP++xVxEAAAAASUVORK5CYII='
-grass_top = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAYElEQVQ4y61TwREAIAiy/cdyGqao3qWIXQ8flgGimfmYhh1OAuQsvahAPQOoFCACUFkR5K2+wxbQMMyZApXxrJUZ8TIFBoRoCl8UdL2QHpSLpBanf+F1hJcCNP2AugckXwA2yZhbyqZNAAAAAElFTkSuQmCC'
-grass_side = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAdElEQVQ4y2NgOMz4n+ElEB/Gg1/iEcMpQchQGJ6ZZvyfEL4zxRsrG4QZkAXRJfEZBOMzEKsYF2bAZiqxhqG4gFgb0dUyEGsjLgsYSAk0bAHOgCt0yXYBqWHBQIwGggmJWMXY1DFQEoUYLiAmMIkKA0IGIfMBkw04/LuclggAAAAASUVORK5CYII='
-
-box = document.createElement 'div'
-box.setAttribute 'style', 'border: 1px solid black; position: absolute;'
-document.body.appendChild(box)
-
-box.appendChild new CubeIcon(side:grass_side, top:grass_top).container
-box.appendChild new CubeIcon(left:dirt, front:stone, top:grass_top).container
