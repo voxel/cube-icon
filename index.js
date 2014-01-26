@@ -12,7 +12,7 @@
       this.container = document.createElement('div');
       s = 16;
       dz = s / 2;
-      this.container.setAttribute('style', "-webkit-transform: translateZ( -100px) rotateX(-45deg) rotateY(-45deg);position: absolute;-webkit-transform-style: preserve-3d;");
+      this.container.setAttribute('style', "-webkit-transform: translateX(100px) translateY(100px) rotateX(-45deg) rotateY(-45deg) scale3d(10,10,10);position: absolute;-webkit-transform-style: preserve-3d;");
       faceTransforms = {
         front: "rotateY(   0deg ) translateZ( " + dz + "px )",
         back: "rotateX( 180deg ) translateZ( " + dz + "px )",

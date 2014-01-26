@@ -10,7 +10,7 @@ class CubeIcon
     dz = s / 2
 
     @container.setAttribute 'style', "
--webkit-transform: translateZ( -100px) rotateX(-45deg) rotateY(-45deg);
+-webkit-transform: translateX(100px) translateY(100px) rotateX(-45deg) rotateY(-45deg) scale3d(10,10,10);
 position: absolute;
 -webkit-transform-style: preserve-3d;
 "
