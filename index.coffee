@@ -17,7 +17,7 @@ class CubeIcon
 
     rotateX = opts.rotateX ? -30
     rotateY = opts.rotateY ? 45
-    scale = opts.scale ? 5
+    scale = opts.scale ? 4
 
     s = opts.size ? 16
 
@@ -39,8 +39,6 @@ class CubeIcon
 -webkit-transform-origin: 0 0;
 position: relative;
 -webkit-transform-style: preserve-3d;
-width: #{cw}px;
-height: #{ch}px;
 "
 
     dz = s / 2

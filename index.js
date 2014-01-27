@@ -18,7 +18,7 @@
       }
       rotateX = (_ref1 = opts.rotateX) != null ? _ref1 : -30;
       rotateY = (_ref2 = opts.rotateY) != null ? _ref2 : 45;
-      scale = (_ref3 = opts.scale) != null ? _ref3 : 5;
+      scale = (_ref3 = opts.scale) != null ? _ref3 : 4;
       s = (_ref4 = opts.size) != null ? _ref4 : 16;
       this.container = document.createElement('div');
       cw = ch = 100;
@@ -26,7 +26,7 @@
       cubeH = Math.ceil(cw / (1 + Math.cos(rotateY * Math.PI / 180)) + 1);
       console.log(cw, s, cubeW);
       console.log(ch, s, cubeH);
-      this.container.setAttribute('style', "-webkit-transform: rotateX(" + rotateX + "deg) rotateY(" + rotateY + "deg) translateX(" + (cw - s * scale) + "px) translateY(" + (ch - s * scale) + "px) scale3d(" + scale + "," + scale + "," + scale + ");-webkit-transform-origin: 0 0;position: relative;-webkit-transform-style: preserve-3d;width: " + cw + "px;height: " + ch + "px;");
+      this.container.setAttribute('style', "-webkit-transform: rotateX(" + rotateX + "deg) rotateY(" + rotateY + "deg) translateX(" + (cw - s * scale) + "px) translateY(" + (ch - s * scale) + "px) scale3d(" + scale + "," + scale + "," + scale + ");-webkit-transform-origin: 0 0;position: relative;-webkit-transform-style: preserve-3d;");
       dz = s / 2;
       faceTransforms = {
         front: "rotateY(   0deg ) translateZ( " + dz + "px )",
