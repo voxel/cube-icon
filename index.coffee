@@ -17,7 +17,7 @@ class CubeIcon
 
     rotateX = opts.rotateX ? -30
     rotateY = opts.rotateY ? 45
-    scale = opts.scale ? 4
+    scale = opts.scale ? 3.55
 
     s = opts.size ? 16
 
@@ -26,16 +26,19 @@ class CubeIcon
     #cw = Math.ceil(s * (1 - Math.sin(rotateX * Math.PI/180))) * scale
     #ch = Math.ceil(s * (1 + Math.cos(rotateY * Math.PI/180))) * scale
    
-    cw = ch = 100
+    cw = ch = 90
 
     cubeW = Math.floor(ch / ((1 - Math.sin(rotateX * Math.PI/180))) - 2)
     cubeH = Math.ceil(cw / ((1 + Math.cos(rotateY * Math.PI/180))) + 1)
 
-    console.log(cw,s,cubeW)
-    console.log(ch,s,cubeH)
+    shiftX = cw - s * scale   - 5
+    shiftY = ch - s * scale   + 5
+
+    #console.log(cw,s,cubeW,shiftX)
+    #console.log(ch,s,cubeH,shiftY)
 
     @container.setAttribute 'style', "
--webkit-transform: rotateX(#{rotateX}deg) rotateY(#{rotateY}deg) translateX(#{cw - s * scale}px) translateY(#{ch - s * scale}px) scale3d(#{scale},#{scale},#{scale});
+-webkit-transform: rotateX(#{rotateX}deg) rotateY(#{rotateY}deg) translateX(#{shiftX}px) translateY(#{shiftY}px) scale3d(#{scale},#{scale},#{scale});
 -webkit-transform-origin: 0 0;
 position: relative;
 -webkit-transform-style: preserve-3d;

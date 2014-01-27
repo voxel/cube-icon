@@ -8,7 +8,7 @@
 
   CubeIcon = (function() {
     function CubeIcon(opts) {
-      var ch, cubeH, cubeW, cw, dz, face, faceName, faceTransforms, i, rotateX, rotateY, s, scale, showFaces, _i, _len, _ref, _ref1, _ref2, _ref3, _ref4;
+      var ch, cubeH, cubeW, cw, dz, face, faceName, faceTransforms, i, rotateX, rotateY, s, scale, shiftX, shiftY, showFaces, _i, _len, _ref, _ref1, _ref2, _ref3, _ref4;
       if (opts == null) {
         opts = {};
       }
@@ -18,15 +18,15 @@
       }
       rotateX = (_ref1 = opts.rotateX) != null ? _ref1 : -30;
       rotateY = (_ref2 = opts.rotateY) != null ? _ref2 : 45;
-      scale = (_ref3 = opts.scale) != null ? _ref3 : 4;
+      scale = (_ref3 = opts.scale) != null ? _ref3 : 3.55;
       s = (_ref4 = opts.size) != null ? _ref4 : 16;
       this.container = document.createElement('div');
-      cw = ch = 100;
+      cw = ch = 90;
       cubeW = Math.floor(ch / (1 - Math.sin(rotateX * Math.PI / 180)) - 2);
       cubeH = Math.ceil(cw / (1 + Math.cos(rotateY * Math.PI / 180)) + 1);
-      console.log(cw, s, cubeW);
-      console.log(ch, s, cubeH);
-      this.container.setAttribute('style', "-webkit-transform: rotateX(" + rotateX + "deg) rotateY(" + rotateY + "deg) translateX(" + (cw - s * scale) + "px) translateY(" + (ch - s * scale) + "px) scale3d(" + scale + "," + scale + "," + scale + ");-webkit-transform-origin: 0 0;position: relative;-webkit-transform-style: preserve-3d;");
+      shiftX = cw - s * scale - 5;
+      shiftY = ch - s * scale + 5;
+      this.container.setAttribute('style', "-webkit-transform: rotateX(" + rotateX + "deg) rotateY(" + rotateY + "deg) translateX(" + shiftX + "px) translateY(" + shiftY + "px) scale3d(" + scale + "," + scale + "," + scale + ");-webkit-transform-origin: 0 0;position: relative;-webkit-transform-style: preserve-3d;");
       dz = s / 2;
       faceTransforms = {
         front: "rotateY(   0deg ) translateZ( " + dz + "px )",
