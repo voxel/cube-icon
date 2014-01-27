@@ -16,5 +16,6 @@ document.body.appendChild(box);
 //console.log({side:images.grass_side, top:images.grass_top});
 //console.log({left:images.dirt, front:images.stone, top:images.grass_top});
 
-box.appendChild(CubeIcon({side:images.grass_side, top:images.grass_top}).container);
-box.appendChild(CubeIcon({left:images.dirt, front:images.stone, top:images.grass_top}).container);
+//box.appendChild(CubeIcon({side:images.grass_side, top:images.grass_top}).container);
+//box.appendChild(CubeIcon({left:images.dirt, front:images.stone, top:images.grass_top}).container);
+box.appendChild(CubeIcon({images:[images.grass_top, null, images.dirt, images.stone]}).container);

@@ -8,11 +8,38 @@
 
   CubeIcon = (function() {
     function CubeIcon(opts) {
-      var ch, cubeH, cubeW, cw, dz, face, faceName, faceTransforms, i, rotateX, rotateY, s, scale, shiftX, shiftY, showFaces, _i, _len, _ref, _ref1, _ref2, _ref3, _ref4;
+      var a, ch, cubeH, cubeW, cw, dz, face, faceName, faceTransforms, i, rotateX, rotateY, s, scale, shiftX, shiftY, showFaces, _i, _ignored, _ignoredB, _ignoredBack, _ignoredBottom, _ignoredRight, _len, _ref, _ref1, _ref2, _ref3, _ref4;
       if (opts == null) {
         opts = {};
       }
       showFaces = (_ref = opts.showFaces) != null ? _ref : ['left', 'top', 'front'];
+      if ((opts.images != null) && Array.isArray(opts.images)) {
+        a = opts.images;
+        if (a.length === 0) {
+          opts.top = opts.side = '';
+        }
+        if (a.length === 1) {
+          opts.top = opts.side = a[0];
+        }
+        if (a.length === 2) {
+          opts.top = a[0], opts.side = a[1];
+        }
+        if (a.length === 3) {
+          opts.top = a[0], _ignored = a[1], opts.side = a[2];
+        }
+        if (a.length === 4) {
+          opts.top = a[0], _ignoredB = a[1], opts.front = a[2], opts.left = a[3];
+        }
+        if (a.length === 5) {
+          throw new Error('cube-icon images.length unrecognized 5');
+        }
+        if (a.length === 6) {
+          _ignoredBack = a[0], opts.front = a[1], opts.top = a[2], _ignoredBottom = a[3], opts.left = a[4], _ignoredRight = a[5];
+        }
+        if (a.length > 6) {
+          throw new Error('cube-icon requires images.length <= 6');
+        }
+      }
       if (opts.side != null) {
         opts.left = opts.front = opts.side;
       }
