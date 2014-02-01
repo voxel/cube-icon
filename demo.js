@@ -9,14 +9,11 @@ var images = {
   grass_side: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAdElEQVQ4y2NgOMz4n+ElEB/Gg1/iEcMpQchQGJ6ZZvyfEL4zxRsrG4QZkAXRJfEZBOMzEKsYF2bAZiqxhqG4gFgb0dUyEGsjLgsYSAk0bAHOgCt0yXYBqWHBQIwGggmJWMXY1DFQEoUYLiAmMIkKA0IGIfMBkw04/LuclggAAAAASUVORK5CYII='
 };
 
-var box = document.createElement('div');
-box.setAttribute('style', 'border: 1px solid black; position: absolute;');
-document.body.appendChild(box);
-
 //console.log({side:images.grass_side, top:images.grass_top});
 //console.log({left:images.dirt, front:images.stone, top:images.grass_top});
 
-box.appendChild(CubeIcon({side:images.dirt, top:images.dirt}).container);
-//box.appendChild(CubeIcon({side:images.grass_side, top:images.grass_top}).container);
-//box.appendChild(CubeIcon({left:images.dirt, front:images.stone, top:images.grass_top}).container);
-//box.appendChild(CubeIcon({images:[images.grass_top, null, images.dirt, images.stone]}).container);
+document.body.appendChild(CubeIcon({side:images.dirt, top:images.dirt}).container);
+// TODO: show additional cubes, offset properly
+//document.body.appendChild(CubeIcon({side:images.grass_side, top:images.grass_top}).container);
+//document.body.appendChild(CubeIcon({left:images.dirt, front:images.stone, top:images.grass_top}).container);
+//document.body.appendChild(CubeIcon({images:[images.grass_top, null, images.dirt, images.stone]}).container);
