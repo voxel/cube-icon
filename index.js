@@ -8,7 +8,7 @@
 
   CubeIcon = (function() {
     function CubeIcon(opts) {
-      var a, ch, cubeH, cubeW, cw, dz, face, faceName, faceTransforms, i, rotateX, rotateY, s, scale, shiftX, shiftY, showFaces, _i, _ignored, _ignoredB, _ignoredBack, _ignoredBottom, _ignoredRight, _len, _ref, _ref1, _ref2, _ref3, _ref4;
+      var a, ch, cubeH, cubeW, cw, dz, face, faceFilters, faceName, faceTransforms, i, rotateX, rotateY, s, scale, shiftX, shiftY, showFaces, _i, _ignored, _ignoredB, _ignoredBack, _ignoredBottom, _ignoredRight, _len, _ref, _ref1, _ref2, _ref3, _ref4, _ref5;
       if (opts == null) {
         opts = {};
       }
@@ -63,11 +63,19 @@
         top: "rotateX(  90deg ) translateZ( " + dz + "px )",
         bottom: "rotateX( -90deg ) translateZ( " + dz + "px )"
       };
+      faceFilters = (_ref5 = opts.faceFilters) != null ? _ref5 : {
+        front: 'brightness(60%)',
+        left: 'brightness(100%)',
+        top: 'brightness(150%)'
+      };
       for (i = _i = 0, _len = showFaces.length; _i < _len; i = ++_i) {
         faceName = showFaces[i];
         face = document.createElement('div');
         face.setAttribute('style', "-webkit-transform-style: preserve-3d; -webkit-transform: " + faceTransforms[faceName] + "; position: absolute; border: 0.5px solid black; width: " + s + "px; height: " + s + "px;");
         face.style.backgroundImage = 'url(' + opts[faceName] + ')';
+        if (faceFilters[faceName]) {
+          face.style.webkitFilter = faceFilters[faceName];
+        }
         this.container.style.webkitTransition = '-webkit-transform 1s';
         this.container.appendChild(face);
       }

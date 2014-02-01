@@ -66,6 +66,12 @@ position: relative;
       bottom: "rotateX( -90deg ) translateZ( #{dz}px )"
     }
 
+    faceFilters = opts.faceFilters ? {
+      front: 'brightness(60%)'
+      left: 'brightness(100%)'
+      top: 'brightness(150%)'
+    }
+
     for faceName, i in showFaces
       face = document.createElement 'div'
       face.setAttribute 'style', "
@@ -76,6 +82,8 @@ border: 0.5px solid black;
 width: #{s}px;
 height: #{s}px;"
       face.style.backgroundImage = 'url(' + opts[faceName] + ')'
+      if faceFilters[faceName]
+        face.style.webkitFilter = faceFilters[faceName]
 
       @container.style.webkitTransition = '-webkit-transform 1s'
       @container.appendChild face
