@@ -53,7 +53,7 @@
       cubeH = Math.ceil(cw / (1 + Math.cos(rotateY * Math.PI / 180)) + 1);
       shiftX = cw - s * scale - 5;
       shiftY = ch - s * scale + 5;
-      this.container.setAttribute('style', "-webkit-transform: rotateX(" + rotateX + "deg) rotateY(" + rotateY + "deg) translateX(" + shiftX + "px) translateY(" + shiftY + "px) scale3d(" + scale + "," + scale + "," + scale + "); -webkit-transform-origin: 0 0; position: relative; -webkit-transform-style: preserve-3d;");
+      this.container.setAttribute('style', "-webkit-transform: rotateX(" + rotateX + "deg) rotateY(" + rotateY + "deg) translateX(" + shiftX + "px) translateY(" + shiftY + "px) scale3d(" + scale + "," + scale + "," + scale + "); transform: rotateX(" + rotateX + "deg) rotateY(" + rotateY + "deg) translateX(" + shiftX + "px) translateY(" + shiftY + "px) scale3d(" + scale + "," + scale + "," + scale + "); -webkit-transform-origin: 0 0; transform-origin: 0 0; position: relative; -webkit-transform-style: preserve-3d; transform-style: preserve-3d;");
       dz = s / 2;
       faceTransforms = {
         front: "rotateY(   0deg ) translateZ( " + dz + "px )",
@@ -71,12 +71,14 @@
       for (i = _i = 0, _len = showFaces.length; _i < _len; i = ++_i) {
         faceName = showFaces[i];
         face = document.createElement('div');
-        face.setAttribute('style', "-webkit-transform-style: preserve-3d; -webkit-transform: " + faceTransforms[faceName] + "; position: absolute; border: 0.5px solid black; width: " + s + "px; height: " + s + "px;");
+        face.setAttribute('style', "-webkit-transform-style: preserve-3d; transform-style: preserve-3d; -webkit-transform: " + faceTransforms[faceName] + "; transform: " + faceTransforms[faceName] + "; position: absolute; border: 0.5px solid black; width: " + s + "px; height: " + s + "px;");
         face.style.backgroundImage = 'url(' + opts[faceName] + ')';
         if (faceFilters[faceName]) {
           face.style.webkitFilter = faceFilters[faceName];
+          face.style.filter = faceFilters[faceName];
         }
         this.container.style.webkitTransition = '-webkit-transform 1s';
+        this.container.style.transition = '        transform 1s';
         this.container.appendChild(face);
       }
     }
