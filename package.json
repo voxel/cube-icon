@@ -1,18 +1,30 @@
 {
   "name": "cube-icon",
   "description": "3D CSS cubes",
+  "main": "cube-icon.coffee",
   "version": "0.1.1",
   "repository": {
     "type": "git",
     "url": "git@github.com:deathcap/cube-icon.git"
   },
   "keywords": [
-    "voxel"
+    "voxel",
+    "cube",
+    "3d",
+    "css",
+    "icon"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "coffeeify": "^0.6.0"
+  },
   "peerDependencies": {},
   "scripts": {
     "start": "beefy demo.js"
+  },
+  "browserify": {
+    "transform": [
+      "coffeeify"
+    ]
   },
   "license": "MIT"
 }
