@@ -1,4 +1,6 @@
 
+expandName = require 'cube-side-array'
+
 module.exports = (opts) -> new CubeIcon opts
 
 class CubeIcon
@@ -11,19 +13,9 @@ class CubeIcon
       #           0        1        2       3       4        5
       [                   'left', 'top',          'front']
 
-    if opts.images? and Array.isArray(opts.images)
-      # voxel-texture _expandName array/side convention
-      a = opts.images
-      opts.top = opts.side = '' if a.length == 0
-      opts.top = opts.side = a[0] if a.length == 1    # one for all
-      [opts.top, opts.side] = a if a.length == 2      # 0 is top/bottom, 1 is sides
-      [opts.top, _ignored, opts.side] = a if a.length == 3    # 0 is top, 1 is bottom, 2 is sides
-      [opts.top, _ignoredB, opts.front, opts.left] = a if a.length == 4 # 0 is top, 1 is bottom, 2 is front/back, 3 is left/right
-      throw new Error('cube-icon images.length unrecognized 5') if a.length == 5
-      [_ignoredBack, opts.front, opts.top, _ignoredBottom, opts.left, _ignoredRight] = a if a.length == 6
-      [opts.front, opts.top, opts.left] = [a.front, a.top, a.left] if a.front? or a.top? or a.left?
-      throw new Error('cube-icon requires images.length <= 6') if a.length > 6
-
+    if opts.images?
+      # expand from scalar or array or object to each face image
+      [opts.back, opts.right, opts.left, opts.top, opts.bottom, opts.front] = expandName(opts.images, 'KRLTBF')
 
     if opts.side?
       opts.left = opts.front = opts.side
