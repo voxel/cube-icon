@@ -7,7 +7,7 @@ Usage:
     var CubeIcon = require('cube-icon')
     document.body.appendChild(CubeIcon(opts));
 
-Example (run `npm start`):
+Example (run `npm start`, or view the **[live demo](http://deathcap.github.io/cube-icon)**):
 
 ![screenshot](http://i.imgur.com/CQVnwle.png "Screenshot")
 
