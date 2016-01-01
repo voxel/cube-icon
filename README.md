@@ -7,14 +7,14 @@ Usage:
     var CubeIcon = require('cube-icon')
     document.body.appendChild(CubeIcon(opts));
 
-Example (run `npm start`, or view the **[live demo](http://deathcap.github.io/cube-icon)**):
+Example (run `npm start`, or view the **[live demo](http://voxel.github.io/cube-icon)**):
 
 ![screenshot](http://i.imgur.com/CQVnwle.png "Screenshot")
 
 Options:
 
 * `showFaces`: array of face names to show, defaults to `['left', 'top', 'front']`
-* `images`: a string, array, or object of images to show on each face, in [cube-side-array](https://github.com/deathcap/cube-side-array) format
+* `images`: a string, array, or object of images to show on each face, in [cube-side-array](https://github.com/voxel/cube-side-array) format
 * `back`, `right`, `left`, `top`, `bottom`, `front`: alternatively you can specify each side image in a separate option
 * `side`: shorthand for `left` and `front`
 * `rotateX`: X rotation in degrees, default -30
