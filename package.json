@@ -15,7 +15,7 @@
     "icon"
   ],
   "dependencies": {
-    "coffeeify": "^1.0.0",
+    "coffeeify": "^2.0.1",
     "cube-side-array": "^0.1.0"
   },
   "peerDependencies": {},
