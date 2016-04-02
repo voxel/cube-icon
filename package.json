@@ -1,7 +1,7 @@
 {
   "name": "cube-icon",
   "description": "3D CSS cubes",
-  "main": "cube-icon.coffee",
+  "main": "cube-icon.js",
   "version": "0.2.2",
   "repository": {
     "type": "git",
