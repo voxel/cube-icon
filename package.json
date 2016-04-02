@@ -15,17 +15,11 @@
     "icon"
   ],
   "dependencies": {
-    "coffeeify": "^1.0.0",
-    "cube-side-array": "^0.1.0"
+    "cube-side-array": "^0.1.1"
   },
   "peerDependencies": {},
   "scripts": {
     "start": "beefy demo.js"
-  },
-  "browserify": {
-    "transform": [
-      "coffeeify"
-    ]
   },
   "license": "MIT"
 }
