@@ -2,7 +2,7 @@
   "name": "cube-icon",
   "description": "3D CSS cubes",
   "main": "cube-icon.js",
-  "version": "0.2.2",
+  "version": "1.0.0",
   "repository": {
     "type": "git",
     "url": "git@github.com:voxel/cube-icon.git"
